@@ -1,10 +1,14 @@
-import React from "react";
-class Header extends React.Component{
-    render(){
-        return(
-        <h1> HornedBeasts </h1>
-        )
-        }
-    }
+import React from 'react'
 
-export default  Header;
+function Header(props) {
+
+    return (
+        <>
+            <h1>Gallery Of Horns</h1>
+        </>
+    );
+
+
+}
+
+export default Header;
