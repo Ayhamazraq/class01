@@ -1,49 +1,36 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import React, { Component } from 'react';
+import { Button, Card, Badge } from 'react-bootstrap';
 
- class HornedBeasts extends React.Component {
+class HornedBeasts extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            numOfPets: 0
-        };
+            votes: 0
+        }
     }
 
-    // for adding 1 to the clicked on cat
-    increaseNumberOfPets = () => {
-        this.setState({
-            numOfPets: this.state.numOfPets + 1
-        });
-    }
+    handleVotes = () => this.setState({ votes: this.state.votes + 1 })
+
     render() {
-
+        const selected = this.props;
         return (
-
-            <div> 
-
-
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img className='cardCat' variant="top" src={this.props.imgUrl} alt= {this.props.description} />
-                    <Card.Body>
-                        <Card.Title>{this.props.title}</Card.Title>
-                        <Card.Text>
-                            Number of Pets {this.state.numOfPets}
-                        </Card.Text>
-                        <Button onClick={this.increaseNumberOfPets} variant="primary">Vote</Button>
-                    </Card.Body>
-                </Card>
-                
-
-            </div>
-
-        );
-
+            // Lab 02
+            <Card >
+                <Card.Img onClick={() => this.props.selectedBeast(selected)} variant="top" src={this.props.imageUrl} alt='' title={this.props.title} />
+                <Card.Body>
+                    <Card.Title><Badge variant="secondary">{this.props.title}</Badge></Card.Title>
+                    <Card.Text>
+                        {this.props.description}
+                        <p>Votes for {this.props.title} : {this.state.votes}</p>
+                    </Card.Text>
+                    <Button onClick={this.handleVotes} variant="outline-primary" size="lg" block>Vote</Button>
+                </Card.Body>
+            </Card>
+        )
     }
 
 }
-
 
 
 export default HornedBeasts;
