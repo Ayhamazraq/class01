@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import HornedBeasts from './HornedBeasts';
 import { CardColumns } from 'react-bootstrap';
-import SelectForm from './SelectedBeast';
+import SelectForm from './SelectForm';
 
 class Main extends Component {
     constructor(props) {
